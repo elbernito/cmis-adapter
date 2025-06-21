@@ -1,0 +1,37 @@
+server:
+  port: 9010
+
+cmis:
+  stack: dev                # "dev" oder "prod"
+  dev:
+    base-url: http://cmis-dev-system/api/cmis/v1.2
+    environment-tag: DEV
+    connect-timeout-ms: 2000
+    read-timeout-ms: 5000
+  prod:
+    base-url: https://prod-cmis-system/api/cmis/v1.2
+    environment-tag: PROD
+    connect-timeout-ms: 1000
+    read-timeout-ms: 2000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+logging:
+  level:
+    root: INFO
+    ch.elbernito.cmis.adapter: DEBUG
